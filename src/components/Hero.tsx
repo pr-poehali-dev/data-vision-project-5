@@ -481,8 +481,12 @@ export default function Hero() {
 
       {/* Hero text */}
       <div className="relative z-10 flex flex-col items-center gap-3 text-center px-4 pt-16 pb-12">
-        <div className="flex items-center gap-2 mb-2">
-          <span className="text-3xl">🎣</span>
+        <div className="flex flex-col items-center gap-3 mb-2">
+          <img
+            src="https://cdn.poehali.dev/projects/9e3df676-4573-415f-a58b-995e884ff7e5/bucket/423c6ded-6868-4e89-a3b4-670373c6795a.jpeg"
+            alt="Логотип Клёв"
+            className="w-24 h-24 object-contain drop-shadow-2xl rounded-2xl"
+          />
           <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold leading-none tracking-[-0.03em] text-white drop-shadow-lg">
             Клёв
           </h1>
