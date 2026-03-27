@@ -488,11 +488,11 @@ export default function Hero() {
             className="w-24 h-24 object-contain drop-shadow-2xl rounded-2xl"
           />
           <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold leading-none tracking-[-0.03em] text-white drop-shadow-lg">
-            Клёв
+            ПРИМА
           </h1>
         </div>
         <p className="text-base sm:text-lg text-white/80 max-w-md leading-relaxed">
-          Мобильное приложение для рыболовов — соревнования, новости и сообщество в одном месте
+          Мобильное приложение для рыболовов ПРИМА — соревнования, новости и сообщество в одном месте
         </p>
         <div className="flex flex-wrap gap-2 justify-center mt-1">
           {["Календарь турниров", "Лента рыболовов", "Регионы РФ", "Светлая и тёмная тема"].map((tag) => (
