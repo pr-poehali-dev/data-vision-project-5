@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import { useNavigate } from "react-router-dom"
 import { motion, AnimatePresence } from "framer-motion"
 import { GodRays, MeshGradient } from "@paper-design/shaders-react"
 import Icon from "@/components/ui/icon"
@@ -804,6 +805,7 @@ function PhoneFrame({
 
 // ─── Main Hero ─────────────────────────────────────────────
 export default function Hero() {
+  const navigate = useNavigate()
   const [screen, setScreen] = useState("news")
 
   const screenMap: Record<string, React.ReactNode> = {
@@ -882,7 +884,7 @@ export default function Hero() {
       </div>
 
       {/* Screen switcher */}
-      <div className="relative z-10 flex gap-3 pb-12">
+      <div className="relative z-10 flex gap-3 pb-6">
         {[
           { id: "news", label: "Лента", icon: "Newspaper" },
           { id: "calendar", label: "Календарь", icon: "CalendarDays" },
@@ -901,6 +903,18 @@ export default function Hero() {
             {s.label}
           </button>
         ))}
+      </div>
+
+      {/* CTA button */}
+      <div className="relative z-10 pb-16">
+        <button
+          onClick={() => navigate("/tournaments")}
+          className="flex items-center gap-2.5 px-8 py-3.5 rounded-2xl text-base font-bold text-white shadow-xl hover:scale-105 transition-transform"
+          style={{ background: "linear-gradient(90deg, #1A5F8C, #2A8FC0)" }}
+        >
+          <Icon name="Search" size={18} className="text-white" />
+          Найти соревнование
+        </button>
       </div>
     </div>
   )
