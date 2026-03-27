@@ -38,3 +38,10 @@
 .read-the-docs {
   color: #888;
 }
+
+.scrollbar-none {
+  scrollbar-width: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
