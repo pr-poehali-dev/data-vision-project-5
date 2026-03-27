@@ -16,12 +16,95 @@ const REGION_COLORS: Record<string, string> = {
 }
 
 const TOURNAMENTS = [
-  { id: 1, title: "Кубок Волги 2026", date: "12–14 апр", place: "Нижний Новгород", type: "Спиннинг", region: "ПФО" },
-  { id: 2, title: "Чемпионат ЦФО", date: "20 апр", place: "Рыбинское вдхр.", type: "Поплавок", region: "ЦФО" },
-  { id: 3, title: "Северная рыбалка", date: "3–5 мая", place: "Ладожское озеро", type: "Нахлыст", region: "СЗФО" },
-  { id: 4, title: "Байкал Опен", date: "17 мая", place: "Байкал", type: "Спиннинг", region: "СФО" },
-  { id: 5, title: "Кубок Дона", date: "24 мая", place: "Ростов-на-Дону", type: "Фидер", region: "ЮФО" },
-  { id: 6, title: "Уральский трофей", date: "7–8 июн", place: "Екатеринбург", type: "Поплавок", region: "УФО" },
+  {
+    id: 1, title: "Кубок Волги 2026", date: "12–14 апр", place: "Нижний Новгород", type: "Спиннинг", region: "ПФО",
+    fee: 2500, slots: 120, registered: 87,
+    description: "Открытые соревнования по спиннинговой ловле на реке Волга в черте г. Нижний Новгород. Разрешена ловля с берега и лодки. Зачёт по сумме 5 наибольших рыб.",
+    rules: [
+      "Ловля с 06:00 до 14:00 без перерыва",
+      "Разрешённые снасти: спиннинг, джиг, воблеры",
+      "Минимальный размер рыбы: судак — 40 см, щука — 45 см",
+      "Обязательна именная маркировка приманок",
+      "Запрещены живые наживки и снасти с более чем 3 крючками",
+      "Взвешивание на официальных весах организатора",
+      "Протест подаётся в течение 30 мин после финиша",
+    ],
+    prizes: ["1 место — 30 000 ₽ + кубок", "2 место — 15 000 ₽", "3 место — 7 000 ₽"],
+    organizer: "Федерация рыболовного спорта ПФО",
+  },
+  {
+    id: 2, title: "Чемпионат ЦФО", date: "20 апр", place: "Рыбинское вдхр.", type: "Поплавок", region: "ЦФО",
+    fee: 1800, slots: 80, registered: 34,
+    description: "Официальный чемпионат Центрального федерального округа по поплавочной ловле. Ловля с берега в отведённых секторах. Зачёт по количеству рыб.",
+    rules: [
+      "Сектора распределяются жеребьёвкой за 1 час до старта",
+      "Длина удилища не более 13 м",
+      "Запрещены прикормки с животными компонентами",
+      "Ловля строго в границах сектора (3 метра)",
+      "Обязателен садок объёмом не менее 3 м",
+      "Рыба взвешивается живой и возвращается в водоём",
+    ],
+    prizes: ["1 место — 20 000 ₽ + медаль", "2 место — 10 000 ₽", "3 место — 5 000 ₽"],
+    organizer: "Рыболовный союз ЦФО",
+  },
+  {
+    id: 3, title: "Северная рыбалка", date: "3–5 мая", place: "Ладожское озеро", type: "Нахлыст", region: "СЗФО",
+    fee: 3500, slots: 40, registered: 22,
+    description: "Престижный турнир по нахлыстовой ловле на Ладожском озере. Три дня соревнований в живописных условиях Карелии. Ловля лосося и кумжи.",
+    rules: [
+      "Ловля только нахлыстом, мушки — исключительно безбородочные",
+      "Принцип «поймал — отпусти» обязателен",
+      "Зачёт по длине рыб (фото с мерной лентой)",
+      "Каждый участник — отдельная лодка (предоставляется)",
+      "Запрещены металлические поводки",
+      "Обязателен спасательный жилет",
+    ],
+    prizes: ["1 место — 50 000 ₽ + трофей", "2 место — 25 000 ₽", "3 место — 12 000 ₽"],
+    organizer: "Карельский клуб нахлыстовиков",
+  },
+  {
+    id: 4, title: "Байкал Опен", date: "17 мая", place: "Байкал", type: "Спиннинг", region: "СФО",
+    fee: 4000, slots: 60, registered: 48,
+    description: "Международный открытый турнир на Байкале. Ловля омуля и хариуса спиннингом. Участники из 12 регионов России и зарубежные гости.",
+    rules: [
+      "Старт с берега, лодочная ловля запрещена",
+      "Максимум 2 удилища на участника",
+      "Зачётная рыба: омуль от 25 см, хариус от 20 см",
+      "Обязательна регистрация улова в мобильном приложении",
+      "Запрещены снасти с отводными поводками длиннее 50 см",
+    ],
+    prizes: ["1 место — 70 000 ₽ + кубок Байкала", "2 место — 35 000 ₽", "3 место — 15 000 ₽"],
+    organizer: "Байкальская лига рыболовного спорта",
+  },
+  {
+    id: 5, title: "Кубок Дона", date: "24 мая", place: "Ростов-на-Дону", type: "Фидер", region: "ЮФО",
+    fee: 2000, slots: 100, registered: 61,
+    description: "Традиционный кубок по фидерной ловле на реке Дон. Командные и личные зачёты. Ловля леща, карася и плотвы в нижнем течении Дона.",
+    rules: [
+      "Сессия 4 часа, старт по сигналу",
+      "Максимум 1 фидерное удилище + 1 страховочное",
+      "Запрещены пружинные кормушки и метод",
+      "Прикормка — не более 3 кг в сухом виде",
+      "Рыба взвешивается после финиша, затем отпускается",
+      "Использование лодки для заброса запрещено",
+    ],
+    prizes: ["1 место — 25 000 ₽", "2 место — 12 000 ₽", "3 место — 6 000 ₽"],
+    organizer: "Донской рыболовный клуб",
+  },
+  {
+    id: 6, title: "Уральский трофей", date: "7–8 июн", place: "Екатеринбург", type: "Поплавок", region: "УФО",
+    fee: 1500, slots: 50, registered: 19,
+    description: "Двухдневный турнир по поплавочной ловле на водоёмах Свердловской области. Особый акцент на экологическую составляющую — вся рыба возвращается.",
+    rules: [
+      "Два тура по 4 часа (суббота и воскресенье)",
+      "Ловля только с берега в отведённом секторе",
+      "Запрещены все виды прикормок промышленного производства",
+      "Разрешены только натуральные наживки: червь, опарыш",
+      "Зачёт по суммарному весу двух туров",
+    ],
+    prizes: ["1 место — 18 000 ₽ + трофей", "2 место — 9 000 ₽", "3 место — 4 500 ₽"],
+    organizer: "Уральская федерация рыболовства",
+  },
 ]
 
 const NEWS_POSTS = [
@@ -65,13 +148,279 @@ const TYPE_ICONS: Record<string, string> = {
 }
 
 // ─── Экраны ───────────────────────────────────────────────
+
+type Tournament = typeof TOURNAMENTS[0]
+
+// Экран детали соревнования
+function TournamentDetail({ tournament, onBack }: { tournament: Tournament; onBack: () => void }) {
+  const [tab, setTab] = useState<"info" | "rules" | "prizes">("info")
+  const [showPayment, setShowPayment] = useState(false)
+  const [registered, setRegistered] = useState(false)
+  const color = REGION_COLORS[tournament.region]
+  const freeSlots = tournament.slots - tournament.registered
+
+  if (showPayment) {
+    return (
+      <div className="flex flex-col h-full bg-[var(--kl-bg)] text-[var(--kl-text)]">
+        {/* Header */}
+        <div className="flex items-center gap-3 px-4 pt-12 pb-4">
+          <button
+            onClick={() => setShowPayment(false)}
+            className="w-8 h-8 rounded-full bg-[var(--kl-card)] border border-[var(--kl-border)] flex items-center justify-center"
+          >
+            <Icon name="ChevronLeft" size={16} />
+          </button>
+          <h1 className="text-base font-bold">Оплата взноса</h1>
+        </div>
+
+        <div className="flex-1 overflow-y-auto px-4 pb-4 flex flex-col gap-4">
+          {/* Summary */}
+          <div className="bg-[var(--kl-card)] rounded-2xl p-4 border border-[var(--kl-border)]">
+            <p className="text-xs text-[var(--kl-muted)] mb-1">Соревнование</p>
+            <p className="font-semibold text-sm">{tournament.title}</p>
+            <div className="flex items-center gap-1 mt-1 text-xs text-[var(--kl-muted)]">
+              <Icon name="Calendar" size={11} />
+              <span>{tournament.date} · {tournament.place}</span>
+            </div>
+            <div className="mt-3 pt-3 border-t border-[var(--kl-border)] flex items-center justify-between">
+              <span className="text-sm text-[var(--kl-muted)]">Стартовый взнос</span>
+              <span className="text-lg font-bold" style={{ color: "var(--kl-blue)" }}>
+                {tournament.fee.toLocaleString("ru-RU")} ₽
+              </span>
+            </div>
+          </div>
+
+          {/* Payment method */}
+          <div className="bg-[var(--kl-card)] rounded-2xl p-4 border border-[var(--kl-border)]">
+            <p className="text-xs font-semibold text-[var(--kl-muted)] mb-3 uppercase tracking-wide">Способ оплаты</p>
+            {[
+              { id: "card", label: "Банковская карта", icon: "CreditCard" },
+              { id: "sbp", label: "СБП (Система быстрых платежей)", icon: "Zap" },
+              { id: "account", label: "Счёт организатора", icon: "Building2" },
+            ].map((m, i) => (
+              <label key={m.id} className={`flex items-center gap-3 py-2.5 cursor-pointer ${i < 2 ? "border-b border-[var(--kl-border)]" : ""}`}>
+                <input type="radio" name="payment" defaultChecked={i === 0} className="accent-[var(--kl-blue)]" />
+                <Icon name={m.icon} size={16} className="text-[var(--kl-muted)]" />
+                <span className="text-sm">{m.label}</span>
+              </label>
+            ))}
+          </div>
+
+          {/* Card form */}
+          <div className="bg-[var(--kl-card)] rounded-2xl p-4 border border-[var(--kl-border)] flex flex-col gap-3">
+            <p className="text-xs font-semibold text-[var(--kl-muted)] uppercase tracking-wide">Данные карты</p>
+            <div className="bg-[var(--kl-bg)] rounded-xl px-3 py-2.5 border border-[var(--kl-border)]">
+              <p className="text-[10px] text-[var(--kl-muted)] mb-0.5">Номер карты</p>
+              <p className="text-sm font-mono tracking-widest text-[var(--kl-muted)]">•••• •••• •••• ••••</p>
+            </div>
+            <div className="flex gap-2">
+              <div className="flex-1 bg-[var(--kl-bg)] rounded-xl px-3 py-2.5 border border-[var(--kl-border)]">
+                <p className="text-[10px] text-[var(--kl-muted)] mb-0.5">Срок</p>
+                <p className="text-sm font-mono text-[var(--kl-muted)]">ММ/ГГ</p>
+              </div>
+              <div className="flex-1 bg-[var(--kl-bg)] rounded-xl px-3 py-2.5 border border-[var(--kl-border)]">
+                <p className="text-[10px] text-[var(--kl-muted)] mb-0.5">CVV</p>
+                <p className="text-sm font-mono text-[var(--kl-muted)]">•••</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Pay button */}
+        <div className="px-4 pb-4">
+          <button
+            onClick={() => { setRegistered(true); setShowPayment(false) }}
+            className="w-full py-3.5 rounded-2xl font-bold text-sm text-white flex items-center justify-center gap-2"
+            style={{ background: "linear-gradient(90deg, #1A5F8C, #2A8FC0)" }}
+          >
+            <Icon name="Lock" size={15} className="text-white" />
+            Оплатить {tournament.fee.toLocaleString("ru-RU")} ₽
+          </button>
+          <p className="text-center text-[10px] text-[var(--kl-muted)] mt-2">Защищено SSL-шифрованием</p>
+        </div>
+      </div>
+    )
+  }
+
+  return (
+    <div className="flex flex-col h-full bg-[var(--kl-bg)] text-[var(--kl-text)]">
+      {/* Header */}
+      <div className="flex items-center gap-3 px-4 pt-12 pb-3">
+        <button
+          onClick={onBack}
+          className="w-8 h-8 rounded-full bg-[var(--kl-card)] border border-[var(--kl-border)] flex items-center justify-center flex-shrink-0"
+        >
+          <Icon name="ChevronLeft" size={16} />
+        </button>
+        <h1 className="text-base font-bold leading-tight truncate">{tournament.title}</h1>
+        <span
+          className="text-[10px] font-bold px-2 py-0.5 rounded-full text-white flex-shrink-0 ml-auto"
+          style={{ background: color }}
+        >
+          {tournament.region}
+        </span>
+      </div>
+
+      {/* Hero block */}
+      <div
+        className="mx-4 rounded-2xl p-4 mb-3"
+        style={{ background: `linear-gradient(135deg, ${color}22, ${color}44)`, border: `1px solid ${color}44` }}
+      >
+        <div className="flex items-center justify-between mb-2">
+          <div
+            className="flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold text-white"
+            style={{ background: "#1A5F8C" }}
+          >
+            <Icon name={TYPE_ICONS[tournament.type] ?? "Fish"} size={11} className="text-white" />
+            {tournament.type}
+          </div>
+          {registered && (
+            <span className="text-xs font-semibold text-green-600 bg-green-500/15 px-2.5 py-1 rounded-full flex items-center gap-1">
+              <Icon name="CheckCircle" size={12} />
+              Зарегистрирован
+            </span>
+          )}
+        </div>
+        <div className="grid grid-cols-2 gap-2 mt-2">
+          <div className="flex items-center gap-1.5 text-xs text-[var(--kl-text)]">
+            <Icon name="Calendar" size={12} className="text-[var(--kl-muted)]" />
+            {tournament.date}
+          </div>
+          <div className="flex items-center gap-1.5 text-xs text-[var(--kl-text)]">
+            <Icon name="MapPin" size={12} className="text-[var(--kl-muted)]" />
+            {tournament.place}
+          </div>
+          <div className="flex items-center gap-1.5 text-xs text-[var(--kl-text)]">
+            <Icon name="Users" size={12} className="text-[var(--kl-muted)]" />
+            {tournament.registered}/{tournament.slots} мест
+          </div>
+          <div className="flex items-center gap-1.5 text-xs font-semibold" style={{ color: "var(--kl-blue)" }}>
+            <Icon name="Wallet" size={12} />
+            {tournament.fee.toLocaleString("ru-RU")} ₽
+          </div>
+        </div>
+        {/* Slots bar */}
+        <div className="mt-3">
+          <div className="flex justify-between text-[10px] text-[var(--kl-muted)] mb-1">
+            <span>Заполненность</span>
+            <span>{Math.round((tournament.registered / tournament.slots) * 100)}% · осталось {freeSlots}</span>
+          </div>
+          <div className="h-1.5 rounded-full bg-[var(--kl-border)] overflow-hidden">
+            <div
+              className="h-full rounded-full"
+              style={{ width: `${(tournament.registered / tournament.slots) * 100}%`, background: color }}
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* Tabs */}
+      <div className="flex gap-1 px-4 mb-3">
+        {([["info", "О турнире"], ["rules", "Регламент"], ["prizes", "Призы"]] as const).map(([id, label]) => (
+          <button
+            key={id}
+            onClick={() => setTab(id)}
+            className={`flex-1 py-1.5 rounded-xl text-xs font-semibold transition-all ${
+              tab === id ? "bg-[var(--kl-blue)] text-white" : "bg-[var(--kl-card)] text-[var(--kl-muted)] border border-[var(--kl-border)]"
+            }`}
+          >
+            {label}
+          </button>
+        ))}
+      </div>
+
+      {/* Tab content */}
+      <div className="flex-1 overflow-y-auto px-4 pb-4">
+        {tab === "info" && (
+          <div className="flex flex-col gap-3">
+            <div className="bg-[var(--kl-card)] rounded-2xl p-4 border border-[var(--kl-border)]">
+              <p className="text-xs font-semibold text-[var(--kl-muted)] uppercase tracking-wide mb-2">Описание</p>
+              <p className="text-sm leading-relaxed">{tournament.description}</p>
+            </div>
+            <div className="bg-[var(--kl-card)] rounded-2xl p-4 border border-[var(--kl-border)]">
+              <p className="text-xs font-semibold text-[var(--kl-muted)] uppercase tracking-wide mb-2">Организатор</p>
+              <div className="flex items-center gap-2.5">
+                <div className="w-8 h-8 rounded-full flex items-center justify-center text-white text-xs font-bold" style={{ background: color }}>
+                  {tournament.organizer[0]}
+                </div>
+                <p className="text-sm font-medium">{tournament.organizer}</p>
+              </div>
+            </div>
+          </div>
+        )}
+        {tab === "rules" && (
+          <div className="bg-[var(--kl-card)] rounded-2xl p-4 border border-[var(--kl-border)] flex flex-col gap-2.5">
+            <p className="text-xs font-semibold text-[var(--kl-muted)] uppercase tracking-wide mb-1">Правила проведения</p>
+            {tournament.rules.map((rule, i) => (
+              <div key={i} className="flex items-start gap-2.5">
+                <div
+                  className="w-5 h-5 rounded-full flex items-center justify-center text-white text-[10px] font-bold flex-shrink-0 mt-0.5"
+                  style={{ background: color }}
+                >
+                  {i + 1}
+                </div>
+                <p className="text-sm leading-relaxed">{rule}</p>
+              </div>
+            ))}
+          </div>
+        )}
+        {tab === "prizes" && (
+          <div className="flex flex-col gap-2">
+            {tournament.prizes.map((prize, i) => (
+              <div
+                key={i}
+                className="bg-[var(--kl-card)] rounded-2xl p-3.5 border border-[var(--kl-border)] flex items-center gap-3"
+              >
+                <div
+                  className="w-9 h-9 rounded-xl flex items-center justify-center text-lg flex-shrink-0"
+                  style={{ background: i === 0 ? "#FFD70022" : i === 1 ? "#C0C0C022" : "#CD7F3222" }}
+                >
+                  {i === 0 ? "🥇" : i === 1 ? "🥈" : "🥉"}
+                </div>
+                <p className="text-sm font-medium">{prize}</p>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+
+      {/* Register button */}
+      {!registered ? (
+        <div className="px-4 pb-4">
+          <button
+            onClick={() => setShowPayment(true)}
+            className="w-full py-3.5 rounded-2xl font-bold text-sm text-white flex items-center justify-center gap-2"
+            style={{ background: `linear-gradient(90deg, #1A5F8C, #2A8FC0)` }}
+          >
+            <Icon name="UserPlus" size={15} className="text-white" />
+            Зарегистрироваться · {tournament.fee.toLocaleString("ru-RU")} ₽
+          </button>
+          <p className="text-center text-[10px] text-[var(--kl-muted)] mt-1.5">Свободных мест: {freeSlots}</p>
+        </div>
+      ) : (
+        <div className="px-4 pb-4">
+          <div className="w-full py-3.5 rounded-2xl font-bold text-sm text-green-600 bg-green-500/10 border border-green-500/20 flex items-center justify-center gap-2">
+            <Icon name="CheckCircle" size={15} />
+            Вы зарегистрированы
+          </div>
+        </div>
+      )}
+    </div>
+  )
+}
+
 function CalendarScreen() {
   const [activeRegion, setActiveRegion] = useState<string | null>(null)
   const [viewGrid, setViewGrid] = useState(false)
+  const [selectedTournament, setSelectedTournament] = useState<Tournament | null>(null)
 
   const filtered = activeRegion
     ? TOURNAMENTS.filter((t) => t.region === activeRegion)
     : TOURNAMENTS
+
+  if (selectedTournament) {
+    return <TournamentDetail tournament={selectedTournament} onBack={() => setSelectedTournament(null)} />
+  }
 
   return (
     <div className="flex flex-col h-full bg-[var(--kl-bg)] text-[var(--kl-text)]">
@@ -113,9 +462,10 @@ function CalendarScreen() {
       {/* Tournaments */}
       <div className={`flex-1 overflow-y-auto px-4 pb-4 ${viewGrid ? "grid grid-cols-2 gap-3 content-start" : "flex flex-col gap-3"}`}>
         {filtered.map((t) => (
-          <div
+          <button
             key={t.id}
-            className="bg-[var(--kl-card)] rounded-2xl p-4 shadow-sm border border-[var(--kl-border)] relative overflow-hidden"
+            onClick={() => setSelectedTournament(t)}
+            className="bg-[var(--kl-card)] rounded-2xl p-4 shadow-sm border border-[var(--kl-border)] relative overflow-hidden text-left active:scale-[0.98] transition-transform"
           >
             <div
               className="absolute left-0 top-0 bottom-0 w-1 rounded-l-2xl"
@@ -123,7 +473,7 @@ function CalendarScreen() {
             />
             <div className="pl-2">
               <div className="flex items-start justify-between gap-2">
-                <p className="font-semibold text-sm leading-tight">{t.title}</p>
+                <p className="font-semibold text-sm leading-tight text-[var(--kl-text)]">{t.title}</p>
                 <span
                   className="text-[10px] font-bold px-2 py-0.5 rounded-full text-white flex-shrink-0"
                   style={{ background: REGION_COLORS[t.region] }}
@@ -139,7 +489,7 @@ function CalendarScreen() {
                 <Icon name="MapPin" size={11} />
                 <span>{t.place}</span>
               </div>
-              <div className="flex items-center gap-1 mt-2">
+              <div className="flex items-center justify-between mt-2">
                 <div
                   className="flex items-center gap-1 px-2 py-0.5 rounded-full text-xs text-white"
                   style={{ background: "#1A5F8C" }}
@@ -147,9 +497,14 @@ function CalendarScreen() {
                   <Icon name={TYPE_ICONS[t.type] ?? "Fish"} size={11} className="text-white" />
                   <span>{t.type}</span>
                 </div>
+                <div className="flex items-center gap-1 text-xs text-[var(--kl-muted)]">
+                  <Icon name="Users" size={11} />
+                  <span>{t.slots - t.registered} мест</span>
+                  <Icon name="ChevronRight" size={12} className="ml-1" />
+                </div>
               </div>
             </div>
-          </div>
+          </button>
         ))}
       </div>
     </div>
